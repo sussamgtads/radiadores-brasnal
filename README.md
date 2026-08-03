@@ -59,6 +59,24 @@ Depois de comprar o domínio (sugestão: `radiadoresbrasnal.com.br`):
 
 **Em hospedagem tradicional:** aponte os nameservers do domínio para os da hospedagem — o painel cuida do resto.
 
+### Depois de apontar o domínio: trocar as URLs
+
+Enquanto o site roda no GitHub Pages, as URLs públicas embutidas nele apontam para
+`https://sussamgtads.github.io/radiadores-brasnal/`. Ao migrar para o domínio próprio,
+substitua essa URL pela nova em três arquivos — é uma busca-e-substitui simples:
+
+- `index.html` — canonical, Open Graph, Twitter Card e dados estruturados
+- `sitemap.xml`
+- `robots.txt`
+
+De uma vez pelo terminal:
+
+```bash
+grep -rl "sussamgtads.github.io/radiadores-brasnal" . | xargs sed -i '' "s|https://sussamgtads.github.io/radiadores-brasnal/|https://radiadoresbrasnal.com.br/|g"
+```
+
+Isso importa para o Google entender qual é o endereço oficial do site.
+
 ---
 
 ## 3. O arquivo que você vai querer editar

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://radiadoresbrasnal.com.br/sitemap.xml
+Sitemap: https://sussamgtads.github.io/radiadores-brasnal/sitemap.xml

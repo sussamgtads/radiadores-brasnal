@@ -5,28 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Página não encontrada · Radiadores Brasnal</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0B0F14">
+<!-- Esta página é servida em qualquer caminho do site, por isso todo o
+     estilo fica embutido: nenhum arquivo externo para dar 404 junto. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Inter:wght@400;700&display=swap">
 <style>
-  .e404{min-height:100dvh;display:grid;place-items:center;text-align:center;padding:40px 20px}
-  .e404 h1{font-size:clamp(4rem,18vw,10rem);line-height:.9;margin-bottom:10px}
-  .e404 h2{font-size:clamp(1.4rem,4vw,2.2rem);margin-bottom:18px}
-  .e404 p{color:var(--txt-2);max-width:46ch;margin:0 auto 28px}
-  .e404 .btn{margin:0 6px 10px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{min-height:100dvh;display:grid;place-items:center;padding:40px 22px;text-align:center;
+    background:#0B0F14;color:#E9EFF5;font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.65}
+  .glow{position:fixed;width:760px;height:760px;top:-330px;left:50%;transform:translateX(-50%);
+    border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,107,44,.28),transparent 66%)}
+  .box{position:relative;max-width:560px}
+  .mark{display:inline-flex;align-items:center;gap:5px;width:64px;height:52px;border-radius:11px;
+    justify-content:center;background:linear-gradient(135deg,#FF9A3D,#FF5722);margin-bottom:28px;
+    box-shadow:0 14px 34px -10px rgba(255,107,44,.7)}
+  .mark i{display:block;width:5px;height:34px;border-radius:3px;background:rgba(11,15,20,.85)}
+  h1{font-family:'Barlow Condensed',Impact,sans-serif;font-weight:800;font-size:clamp(4.5rem,20vw,10rem);
+    line-height:.86;letter-spacing:-.02em;
+    background:linear-gradient(100deg,#FF9A3D,#FF5722 60%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{font-family:'Barlow Condensed',Impact,sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:clamp(1.5rem,5vw,2.3rem);margin:6px 0 16px;letter-spacing:-.01em}
+  p{color:#A9B8C6;margin:0 auto 32px;max-width:44ch}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  a.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 30px;border-radius:12px;
+    font-weight:700;font-size:1rem;text-decoration:none;border:1px solid transparent;transition:.25s}
+  .p{background:linear-gradient(135deg,#FF9A3D,#FF5722);color:#120803;box-shadow:0 14px 34px -14px rgba(255,107,44,.85)}
+  .p:hover{transform:translateY(-2px)}
+  .g{border-color:#243040;color:#E9EFF5;background:rgba(255,255,255,.03)}
+  .g:hover{border-color:#FF6B2C;color:#FF9A3D;transform:translateY(-2px)}
+  small{display:block;margin-top:30px;color:#7B8B9B;font-size:.84rem}
 </style>
 </head>
 <body>
-  <main class="e404">
-    <div>
-      <h1 class="grad">404</h1>
-      <h2>Essa página esfriou demais</h2>
-      <p>O endereço que você tentou acessar não existe mais. Mas o radiador continua no lugar de sempre — volte para a página inicial ou fale direto com a oficina.</p>
-      <a class="btn btn--primary btn--lg" href="/">Voltar ao início</a>
-      <a class="btn btn--ghost btn--lg" href="tel:+551147013185">(11) 4701-3185</a>
+  <div class="glow"></div>
+  <main class="box">
+    <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <h1>404</h1>
+    <h2>Essa página esfriou demais</h2>
+    <p>O endereço que você tentou acessar não existe. Mas o radiador continua no lugar de sempre — volte para a página inicial ou fale direto com a oficina.</p>
+    <div class="cta">
+      <a class="btn p" id="home" href="/">Voltar ao início</a>
+      <a class="btn g" href="tel:+551147013185">(11) 4701-3185</a>
     </div>
+    <small>Radiadores Brasnal · Av. Felício Baruti, 120 — Taboão da Serra/SP · desde 1982</small>
   </main>
+  <script>
+    /* Quando o site é servido em um subdiretório (caso do GitHub Pages),
+       "/" levaria para fora do site. Aqui voltamos para a raiz correta.
+       Em domínio próprio nada muda: "/" já é a raiz certa. */
+    (function () {
+      var seg = location.pathname.split('/').filter(Boolean);
+      if (/\.github\.io$/.test(location.hostname) && seg.length) {
+        document.getElementById('home').href = '/' + seg[0] + '/';
+      }
+    })();
+  </script>
 </body>
 </html>
