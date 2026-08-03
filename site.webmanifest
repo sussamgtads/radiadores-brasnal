@@ -1,0 +1,13 @@
+{
+  "name": "Radiadores Brasnal",
+  "short_name": "Brasnal",
+  "description": "Reforma e manutenção de radiadores em Taboão da Serra desde 1982.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F14",
+  "theme_color": "#0B0F14",
+  "icons": [
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
