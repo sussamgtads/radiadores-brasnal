@@ -106,7 +106,33 @@ Salve, suba o arquivo, e o site inteiro se adapta sozinho.
 
 ---
 
-## 4. Estrutura dos arquivos
+## 4. As cores e os dois temas
+
+O site tem **dois temas**, e o visitante alterna entre eles pelo botão de sol/lua no topo:
+
+- **Claro (padrão)** — azul e branco, as cores da marca. É o que todo mundo vê ao entrar.
+- **Escuro (opcional)** — grafite e laranja. A escolha fica salva no navegador do visitante, então quem prefere o escuro continua nele nas próximas visitas.
+
+Toda a identidade visual está em **variáveis CSS no topo de `assets/css/style.css`**, num único bloco. Nenhuma cor é repetida pelo arquivo: para mudar a marca inteira, basta alterar os valores lá.
+
+```css
+:root{                        /* tema claro — azul e branco */
+  --brand:#0B5FBF;            /* azul principal            */
+  --brand-2:#2C87E8;          /* azul claro (gradientes)   */
+  --brand-ink:#FFFFFF;        /* texto sobre o azul        */
+  --band-bg:#0A2340;          /* faixa do topo e do rodapé */
+}
+:root[data-theme="dark"]{     /* tema escuro — grafite e laranja */
+  --brand:#FF6B2C;
+  ...
+}
+```
+
+Para trocar o tom de azul da empresa, mexa em `--brand` e `--brand-2`. Todo o site acompanha: botões, ícones, links, gráficos, bordas e destaques.
+
+---
+
+## 5. Estrutura dos arquivos
 
 ```
 .
@@ -128,7 +154,7 @@ Salve, suba o arquivo, e o site inteiro se adapta sozinho.
 
 ---
 
-## 5. Rodar localmente
+## 6. Rodar localmente
 
 ```bash
 node dev-server.js
@@ -138,7 +164,7 @@ Abra `http://localhost:4173`. O `dev-server.js` serve apenas para testar na sua 
 
 ---
 
-## 6. O que já vem pronto
+## 7. O que já vem pronto
 
 **SEO e presença no Google**
 
@@ -159,6 +185,8 @@ Abra `http://localhost:4173`. O `dev-server.js` serve apenas para testar na sua 
 **Técnico**
 
 - Responsivo de 320px a 4K, sem rolagem horizontal.
+- Tema claro e escuro, com a preferência do visitante lembrada entre visitas.
+- Nada quebra se o JavaScript falhar: o conteúdo continua visível e legível.
 - Acessibilidade: navegação por teclado, foco visível, `skip link`, marcação semântica, `aria` no menu.
 - Respeita `prefers-reduced-motion`.
 - Sem rastreadores, sem cookies, sem coleta de dados.
@@ -166,7 +194,7 @@ Abra `http://localhost:4173`. O `dev-server.js` serve apenas para testar na sua 
 
 ---
 
-## 7. Trocar por fotos reais
+## 8. Trocar por fotos reais
 
 O radiador do topo e os ícones são desenhados em SVG/CSS — funcionam bem e nunca quebram. Quando houver fotos da oficina, dos serviços e da equipe, os melhores lugares para inseri-las são:
 
@@ -178,7 +206,7 @@ Use imagens em `.webp`, com no máximo ~1600px de largura, e sempre com `alt` de
 
 ---
 
-## 8. Dados da empresa usados no site
+## 9. Dados da empresa usados no site
 
 | Campo | Valor |
 |---|---|

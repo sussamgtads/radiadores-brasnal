@@ -251,7 +251,38 @@
     });
   }
 
-  /* ── 8. Ano no rodapé ──────────────────────────────────── */
+  /* ── 8. Alternância de tema ────────────────────────────────
+     Claro (azul e branco) é o padrão. O visitante pode trocar para o
+     modo escuro; a escolha fica salva no navegador dele.            */
+  function tema() {
+    var KEY = 'brasnal-tema';
+    var btn = $('#btnTema');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    var d = document.documentElement;
+
+    function aplicar(nome, salvar) {
+      var escuro = nome === 'dark';
+      if (escuro) { d.setAttribute('data-theme', 'dark'); }
+      else { d.removeAttribute('data-theme'); }
+
+      if (meta) meta.setAttribute('content', escuro ? '#0B0F14' : '#0A2340');
+      if (btn) {
+        btn.setAttribute('aria-pressed', String(escuro));
+        btn.setAttribute('aria-label', escuro ? 'Voltar ao modo claro' : 'Ativar modo escuro');
+      }
+      if (salvar) { try { localStorage.setItem(KEY, escuro ? 'dark' : 'light'); } catch (e) {} }
+    }
+
+    // Sincroniza os rótulos com o tema já restaurado pelo script do <head>.
+    aplicar(d.getAttribute('data-theme') === 'dark' ? 'dark' : 'light', false);
+
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      aplicar(d.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
+    });
+  }
+
+  /* ── 9. Ano no rodapé ──────────────────────────────────── */
   function ano() {
     var el = $('#ano');
     if (el) el.textContent = new Date().getFullYear();
@@ -259,7 +290,7 @@
 
   /* ── Boot ──────────────────────────────────────────────── */
   function init() {
-    ligarCtas(); header(); reveal(); contadores();
+    tema(); ligarCtas(); header(); reveal(); contadores();
     statusHorario(); formulario(); faq(); ano();
   }
 

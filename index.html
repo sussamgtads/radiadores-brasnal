@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0B0F14">
+<meta name="theme-color" content="#0A2340">
 
 <title>Radiadores Brasnal | Reforma e Manutenção de Radiadores em Taboão da Serra desde 1982</title>
 <meta name="description" content="Reforma geral e manutenção de radiadores em Taboão da Serra desde 1982. Colmeias, radiadores novos, recondicionados e à base de troca para carros, utilitários e caminhões — todas as marcas e modelos. Ligue (11) 4701-3185.">
@@ -41,7 +41,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
-<script>document.documentElement.classList.add('js');</script>
+<script>
+/* Roda antes do primeiro paint: marca que há JS (as animações de entrada
+   dependem disso) e restaura o tema escolhido pelo visitante, evitando o
+   piscar de tela clara antes do tema escuro ser aplicado.
+   O padrão é sempre o tema claro — azul e branco, as cores da marca. */
+(function(){
+  var d=document.documentElement;
+  d.classList.add('js');
+  try{ if(localStorage.getItem('brasnal-tema')==='dark') d.setAttribute('data-theme','dark'); }catch(e){}
+})();
+</script>
 
 <script type="application/ld+json">
 {
@@ -144,9 +154,9 @@
   <div class="wrap hd__in">
     <a class="brand" href="#topo" aria-label="Radiadores Brasnal — início">
       <span class="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 40 40"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8A3D"/><stop offset="1" stop-color="#FF5722"/></linearGradient></defs>
+        <svg viewBox="0 0 40 40"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop class="s1" offset="0"/><stop class="s2" offset="1"/></linearGradient></defs>
         <rect x="2" y="4" width="36" height="32" rx="5" fill="url(#bg1)"/>
-        <g fill="#0B0F14" opacity=".85"><rect x="7" y="9" width="3" height="22" rx="1.5"/><rect x="13" y="9" width="3" height="22" rx="1.5"/><rect x="19" y="9" width="3" height="22" rx="1.5"/><rect x="25" y="9" width="3" height="22" rx="1.5"/><rect x="31" y="9" width="2.5" height="22" rx="1.2"/></g></svg>
+        <g class="fins"><rect x="7" y="9" width="3" height="22" rx="1.5"/><rect x="13" y="9" width="3" height="22" rx="1.5"/><rect x="19" y="9" width="3" height="22" rx="1.5"/><rect x="25" y="9" width="3" height="22" rx="1.5"/><rect x="31" y="9" width="2.5" height="22" rx="1.2"/></g></svg>
       </span>
       <span class="brand__txt">
         <strong>Radiadores <em>Brasnal</em></strong>
@@ -163,6 +173,11 @@
       <a href="#faq">Dúvidas</a>
       <a class="btn btn--sm btn--primary nav__cta" href="#orcamento">Pedir orçamento</a>
     </nav>
+
+    <button class="theme" id="btnTema" type="button" aria-label="Ativar modo escuro" aria-pressed="false" title="Alternar entre modo claro e escuro">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 019.8 4a8.4 8.4 0 102 10.2 8.2 8.2 0 008.2 0z"/></svg>
+    </button>
 
     <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
@@ -421,7 +436,7 @@
         <div class="region__rows">
           <a class="row" data-cta="tel" href="tel:+551147013185"><span class="row__ic"><svg viewBox="0 0 24 24"><path d="M4 5c0-1 1-2 2-2h2l2 5-2 1.5a12 12 0 005.5 5.5L15 13l5 2v2c0 1-1 2-2 2C10.8 19 4 12.2 4 5z"/></svg></span><span><b>(11) 4701-3185</b><small>Telefone da oficina</small></span></a>
           <a class="row" href="mailto:radiadoresbrasnal@hotmail.com"><span class="row__ic"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></span><span><b>radiadoresbrasnal@hotmail.com</b><small>E-mail para orçamento</small></span></a>
-          <a class="row" href="https://www.google.com/maps/dir/?api=1&destination=Radiadores+Brasnal+Avenida+Fel%C3%ADcio+Baruti+120+Tabo%C3%A3o+da+Serra+SP" target="_blank" rel="noopener"><span class="row__ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6" fill="#0B0F14"/></svg></span><span><b>Traçar rota</b><small>Abrir no Google Maps</small></span></a>
+          <a class="row" href="https://www.google.com/maps/dir/?api=1&destination=Radiadores+Brasnal+Avenida+Fel%C3%ADcio+Baruti+120+Tabo%C3%A3o+da+Serra+SP" target="_blank" rel="noopener"><span class="row__ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z"/><circle class="knock" cx="12" cy="10" r="2.6"/></svg></span><span><b>Traçar rota</b><small>Abrir no Google Maps</small></span></a>
         </div>
 
         <h4>Horário de atendimento</h4>
@@ -530,9 +545,9 @@
     <div class="ft__col ft__col--brand">
       <a class="brand brand--ft" href="#topo">
         <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40"><defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8A3D"/><stop offset="1" stop-color="#FF5722"/></linearGradient></defs>
+          <svg viewBox="0 0 40 40"><defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop class="s1" offset="0"/><stop class="s2" offset="1"/></linearGradient></defs>
           <rect x="2" y="4" width="36" height="32" rx="5" fill="url(#bg2)"/>
-          <g fill="#0B0F14" opacity=".85"><rect x="7" y="9" width="3" height="22" rx="1.5"/><rect x="13" y="9" width="3" height="22" rx="1.5"/><rect x="19" y="9" width="3" height="22" rx="1.5"/><rect x="25" y="9" width="3" height="22" rx="1.5"/><rect x="31" y="9" width="2.5" height="22" rx="1.2"/></g></svg>
+          <g class="fins"><rect x="7" y="9" width="3" height="22" rx="1.5"/><rect x="13" y="9" width="3" height="22" rx="1.5"/><rect x="19" y="9" width="3" height="22" rx="1.5"/><rect x="25" y="9" width="3" height="22" rx="1.5"/><rect x="31" y="9" width="2.5" height="22" rx="1.2"/></g></svg>
         </span>
         <span class="brand__txt"><strong>Radiadores <em>Brasnal</em></strong><small>Desde 1982</small></span>
       </a>
