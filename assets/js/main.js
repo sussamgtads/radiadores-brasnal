@@ -202,8 +202,10 @@
       L.push('');
       L.push('Nome: ' + d.nome.value.trim());
       L.push('Telefone: ' + d.telefone.value.trim());
-      if (d.veiculo.value.trim()) L.push('Veículo: ' + d.veiculo.value.trim());
-      L.push('Serviço: ' + d.servico.value);
+      if (d.empresa && d.empresa.value.trim()) L.push('Empresa: ' + d.empresa.value.trim());
+      L.push('Equipamento: ' + d.servico.value);
+      if (d.veiculo.value.trim()) L.push('Modelo/fabricante: ' + d.veiculo.value.trim());
+      if (d.retirada) L.push('Retirada na empresa: ' + d.retirada.value);
       if (d.mensagem.value.trim()) { L.push(''); L.push('Descrição: ' + d.mensagem.value.trim()); }
       return L.join('\n');
     }
@@ -240,18 +242,7 @@
     });
   }
 
-  /* ── 7. FAQ: abre um, fecha os outros ──────────────────── */
-  function faq() {
-    var itens = $$('.faq details');
-    itens.forEach(function (d) {
-      d.addEventListener('toggle', function () {
-        if (!d.open) return;
-        itens.forEach(function (o) { if (o !== d) o.open = false; });
-      });
-    });
-  }
-
-  /* ── 8. Alternância de tema ────────────────────────────────
+  /* ── 7. Alternância de tema ────────────────────────────────
      Claro (azul e branco) é o padrão. O visitante pode trocar para o
      modo escuro; a escolha fica salva no navegador dele.            */
   function tema() {
@@ -282,7 +273,7 @@
     });
   }
 
-  /* ── 9. Ano no rodapé ──────────────────────────────────── */
+  /* ── 8. Ano no rodapé ──────────────────────────────────── */
   function ano() {
     var el = $('#ano');
     if (el) el.textContent = new Date().getFullYear();
@@ -291,7 +282,7 @@
   /* ── Boot ──────────────────────────────────────────────── */
   function init() {
     tema(); ligarCtas(); header(); reveal(); contadores();
-    statusHorario(); formulario(); faq(); ano();
+    statusHorario(); formulario(); ano();
   }
 
   if (document.readyState === 'loading') {

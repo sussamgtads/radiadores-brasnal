@@ -46,11 +46,11 @@
   --band-line:rgba(255,255,255,.12);
 
   /* detalhes */
-  --hex:rgba(11,95,191,.16);
+  --hex:rgba(46,49,146,.15);
   --hd-bg:rgba(255,255,255,.78);
   --hd-bg-stuck:rgba(255,255,255,.94);
-  --field-bg:rgba(11,95,191,.04);
-  --field-bg-focus:rgba(11,95,191,.07);
+  --field-bg:rgba(46,49,146,.04);
+  --field-bg-focus:rgba(46,49,146,.07);
   --rad-fin-a:#C6DAEE;
   --rad-fin-b:#9EBBD8;
   --rad-body-a:#E8F1FA;
@@ -192,10 +192,11 @@ ul,ol{margin:0;padding:0;list-style:none}
   filter:drop-shadow(0 6px 14px var(--brand-glow))}
 .brand__txt strong{display:block;font-family:var(--f-display);font-size:1.32rem;font-weight:800;letter-spacing:.01em;text-transform:uppercase;line-height:1}
 .brand__txt strong em{font-style:normal;color:var(--brand)}
-.brand__txt small{display:block;font-size:.68rem;color:var(--txt-3);letter-spacing:.14em;text-transform:uppercase;margin-top:3px}
+.brand__txt small{display:block;font-size:.68rem;color:var(--txt-3);letter-spacing:.14em;text-transform:uppercase;margin-top:3px;white-space:nowrap}
 
-.nav{margin-left:auto;display:flex;align-items:center;gap:24px}
-.nav>a:not(.btn){font-size:.9rem;font-weight:500;color:var(--txt-2);position:relative;padding:6px 0}
+.nav{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav>a:not(.btn){font-size:.9rem;font-weight:500;color:var(--txt-2);position:relative;padding:6px 0;white-space:nowrap}
+@media (max-width:1400px){.nav{gap:17px}.nav>a:not(.btn){font-size:.86rem}}
 .nav>a:not(.btn)::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:linear-gradient(90deg,var(--brand-2),var(--brand));transition:width .3s var(--ease)}
 .nav>a:not(.btn):hover{color:var(--txt)}
 .nav>a:not(.btn):hover::after{width:100%}
@@ -218,7 +219,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-@media (max-width:1100px){
+@media (max-width:1240px){
   .burger{display:flex}
   .theme{margin-left:auto}
   .nav{position:fixed;top:var(--nav-top,114px);left:0;right:0;bottom:auto;margin:0;flex-direction:column;align-items:stretch;gap:0;
@@ -331,6 +332,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .card__ic svg{width:26px;height:26px;fill:none;stroke:currentColor}
 .card h3{font-size:1.32rem;margin-bottom:12px;letter-spacing:0}
 .card p{color:var(--txt-2);font-size:.95rem;margin-bottom:16px}
+/* variante sem lista de tópicos: o texto é o último elemento do card */
+.card--tight{padding:28px 26px}
+.card--tight p{margin-bottom:0}
 .tick li{position:relative;padding-left:24px;font-size:.87rem;color:var(--txt-3);margin-bottom:7px}
 .tick li::before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:5px;border-left:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(-45deg)}
 .note{margin-top:28px;text-align:center;color:var(--txt-3);font-size:.93rem}
@@ -404,16 +408,24 @@ ul,ol{margin:0;padding:0;list-style:none}
 .chips li{font-size:.79rem;padding:6px 13px;border-radius:99px;background:var(--brand-soft);border:1px solid var(--line-soft);color:var(--txt-2)}
 @media (max-width:900px){.region{grid-template-columns:1fr}.region__map,.region__map iframe{min-height:320px}}
 
-/* ── FAQ ────────────────────────────────────────────────── */
-.faq details{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;transition:border-color .3s,box-shadow .3s}
-.faq details[open]{border-color:var(--brand-line);box-shadow:var(--shadow-soft)}
-.faq summary{cursor:pointer;list-style:none;padding:20px 56px 20px 24px;font-weight:600;font-size:1.01rem;position:relative;transition:color .25s}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:hover{color:var(--brand)}
-.faq summary::after{content:"";position:absolute;right:24px;top:50%;width:11px;height:11px;border-right:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:translateY(-70%) rotate(45deg);transition:transform .3s var(--ease)}
-.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
-.faq details p{padding:0 24px 22px;margin:0;color:var(--txt-2);font-size:.95rem}
-.faq details strong{color:var(--txt)}
+/* ── Retirada da peça na empresa ────────────────────────── */
+.pickup{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,60px);align-items:center}
+.pickup>*{min-width:0}
+.pickup h2{font-size:clamp(1.9rem,4vw,2.85rem);margin-bottom:20px}
+.pickup__copy p{color:var(--txt-2);margin-bottom:1.1em}
+.pickup__copy .btn{margin-top:10px}
+
+.pickup__list{display:grid;gap:12px}
+.pickup__list li{display:flex;align-items:center;gap:16px;padding:18px 22px;
+  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);transition:transform .3s var(--ease),border-color .3s}
+.pickup__list li:hover{transform:translateX(4px);border-color:var(--brand-line)}
+.pickup__n{display:grid;place-items:center;width:40px;height:40px;flex:none;border-radius:50%;
+  background:linear-gradient(135deg,var(--brand-2),var(--brand));color:var(--brand-ink);
+  font-family:var(--f-display);font-size:1.35rem;font-weight:800;line-height:1}
+.pickup__list b{display:block;font-size:1rem;font-weight:600;margin-bottom:2px}
+.pickup__list small{display:block;font-size:.85rem;color:var(--txt-3);line-height:1.45}
+@media (max-width:900px){.pickup{grid-template-columns:1fr}}
 
 /* ── CTA / Formulário ───────────────────────────────────── */
 .cta{background:radial-gradient(120% 100% at 50% 0%,var(--brand-soft),transparent 62%),var(--bg)}

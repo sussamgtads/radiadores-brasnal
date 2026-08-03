@@ -1,6 +1,6 @@
 # Radiadores Brasnal — site institucional
 
-Site institucional da **Radiadores Brasnal Ltda**, oficina especializada em reforma e manutenção de radiadores em Taboão da Serra/SP, em atividade desde 1991.
+Site institucional da **Radiadores Brasnal Ltda**, oficina especializada em **radiadores de linha pesada** — caminhões, ônibus, geradores e empilhadeiras — em Taboão da Serra/SP, em atividade desde 1991. O site é voltado para o público B2B da empresa: transportadoras, frotas e indústrias.
 
 Site estático puro: **HTML + CSS + JavaScript**, sem build, sem framework, sem dependência de servidor. Sobe em qualquer hospedagem — basta jogar os arquivos na pasta pública.
 
@@ -173,8 +173,8 @@ Abra `http://localhost:4173`. O `dev-server.js` serve apenas para testar na sua 
 
 **SEO e presença no Google**
 
-- Dados estruturados `AutoRepair` + `LocalBusiness` (endereço, telefone, CNPJ, horários, área atendida, catálogo de serviços) — é o que alimenta o painel lateral do Google.
-- `FAQPage` marcado: as perguntas frequentes podem aparecer direto nos resultados de busca.
+- Dados estruturados `AutoRepair` + `LocalBusiness` (endereço, telefone, CNPJ, horários, cidades atendidas e catálogo de linha pesada) — é o que alimenta o painel lateral do Google.
+- Título, palavras-chave e conteúdo orientados a busca de linha pesada: "radiador de caminhão", "radiador de ônibus", "radiador de gerador", "radiador de empilhadeira".
 - Título, descrição, canonical, Open Graph e Twitter Card configurados.
 - Meta tags de geolocalização para busca local.
 - `sitemap.xml` e `robots.txt`.
@@ -185,7 +185,8 @@ Abra `http://localhost:4173`. O `dev-server.js` serve apenas para testar na sua 
 - Telefone e WhatsApp clicáveis em vários pontos da página.
 - Formulário de orçamento com validação, que envia por WhatsApp ou e-mail.
 - Selo dinâmico de "aberto agora / fechado" calculado pelo horário real.
-- Seção "sinais de alerta" — captura quem está pesquisando o sintoma, não o serviço.
+- Seção "sinais de alerta" escrita em linguagem de frota — captura quem pesquisa o sintoma, não o serviço.
+- Campos de empresa, equipamento e retirada no formulário, para o pedido já chegar qualificado.
 
 **Técnico**
 
@@ -205,7 +206,8 @@ O radiador do topo e os ícones são desenhados em SVG/CSS — funcionam bem e n
 
 1. **Topo (hero)** — substituir o bloco `.hero__art` por uma foto da fachada ou da bancada em serviço.
 2. **A empresa** — uma foto do Sr. Ricardo trabalhando vale mais que qualquer texto.
-3. **Nova galeria "antes e depois"** — o argumento de venda mais forte de uma oficina de radiador.
+4. **Retirada da peça** — uma foto da retirada num pátio de cliente comprova o diferencial melhor que a ilustração.
+3. **Nova galeria "antes e depois"** — colmeia de caminhão ou ônibus recuperada é o argumento de venda mais forte que existe nesse mercado.
 
 Use imagens em `.webp`, com no máximo ~1600px de largura, e sempre com `alt` descritivo.
 
@@ -223,6 +225,7 @@ Use imagens em `.webp`, com no máximo ~1600px de largura, e sempre com `alt` de
 | WhatsApp | (11) 99944-6050 |
 | E-mail | radiadoresbrasnal@hotmail.com |
 | Instagram | [@radiadoresbrasnal](https://www.instagram.com/radiadoresbrasnal/) |
-| Atividade | Serviços de manutenção e reparação mecânica de veículos automotores |
+| Especialidade | Radiadores de linha pesada: caminhões, ônibus, geradores e empilhadeiras |
+| Diferencial | Retirada e entrega da peça na empresa do cliente |
 
 Os horários publicados (seg–sex 08h–18h, sábado com agendamento) foram montados a partir das informações públicas disponíveis. **Confirme com a oficina antes de divulgar** e ajuste em `assets/js/config.js` se necessário — o selo de "aberto agora" e os dados estruturados do Google usam essa mesma fonte.
