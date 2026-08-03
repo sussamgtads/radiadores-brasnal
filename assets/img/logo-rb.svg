@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 222" role="img" aria-label="Radiadores Brasnal">
+  <!-- Logo oficial: retângulo azul, losango branco e o monograma RB.
+       O "RB" é desenhado em vetor (não em texto) para ficar idêntico em
+       qualquer sistema, independente das fontes instaladas. -->
+  <rect width="324" height="222" fill="#2E3192"/>
+  <path d="M162 2 L320 111 L162 220 L4 111 Z" fill="#FFFFFF"/>
+  <g fill="#2E3192">
+    <!-- R -->
+    <path d="M104 76h39c19.6 0 31.5 10.4 31.5 26.4 0 11.3-5.9 19.5-16 23.4L177 146h-23.2l-16-17.6h-11.9V146H104V76zm37 34.6c7.4 0 11.8-3.1 11.8-8.6s-4.4-8.6-11.8-8.6h-15.1v17.2H141z"/>
+    <!-- B -->
+    <path d="M186 76h41.4c18.2 0 28.6 7.6 28.6 19.4 0 7.2-3.9 12.9-10.6 15.6 8.6 2.6 13.4 8.9 13.4 17.2 0 12.3-10.8 17.8-30 17.8H186V76zm38.6 27.4c6.4 0 9.9-2.2 9.9-6.4s-3.5-6.3-9.9-6.3h-16.7v12.7h16.7zm2 27.9c6.7 0 10.4-2.3 10.4-6.8s-3.7-6.8-10.4-6.8h-18.7v13.6h18.7z"/>
+  </g>
+</svg>

@@ -166,7 +166,7 @@
         txt.textContent = 'Fechado · abre ' + quando + ' às ' + d.abre.replace(':', 'h');
         return;
       }
-      txt.textContent = 'Seg a Sex 08h–18h';
+      txt.textContent = 'Seg a Sex 08h–17h';
     }
   }
 

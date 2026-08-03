@@ -9,14 +9,12 @@ window.BRASNAL = {
 
   /* ── WhatsApp ──────────────────────────────────────────────
      Formato: DDI + DDD + número, só dígitos, sem espaço.
-     Ex.: '5511987654321'
-     ENQUANTO ESTIVER VAZIO ('') o site funciona normalmente:
-     todos os botões de WhatsApp viram "Ligar" automaticamente.
-     Basta preencher esta linha para ativar o WhatsApp no site
-     inteiro — nada mais precisa ser mexido.                    */
-  whatsapp: '',
+     Se ficar vazio (''), o site continua funcionando: todos os
+     botões de WhatsApp viram "Ligar" automaticamente.          */
+  whatsapp: '5511999446050',
+  whatsappExibicao: '(11) 99944-6050',
 
-  /* ── Telefone fixo da oficina (confirmado) ───────────────── */
+  /* ── Telefone fixo da oficina ───────────────────────────── */
   telefone: '(11) 4701-3185',
   telefoneLink: '+551147013185',
 
@@ -28,11 +26,11 @@ window.BRASNAL = {
      Usado no selo "Aberto agora / Fechado" do topo do site.   */
   horarios: {
     0: null,
-    1: { abre: '08:00', fecha: '18:00' },
-    2: { abre: '08:00', fecha: '18:00' },
-    3: { abre: '08:00', fecha: '18:00' },
-    4: { abre: '08:00', fecha: '18:00' },
-    5: { abre: '08:00', fecha: '18:00' },
+    1: { abre: '08:00', fecha: '17:00' },
+    2: { abre: '08:00', fecha: '17:00' },
+    3: { abre: '08:00', fecha: '17:00' },
+    4: { abre: '08:00', fecha: '17:00' },
+    5: { abre: '08:00', fecha: '17:00' },
     6: { abre: '08:00', fecha: '12:00', obs: 'com agendamento' }
   },
 

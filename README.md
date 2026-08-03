@@ -1,6 +1,6 @@
 # Radiadores Brasnal — site institucional
 
-Site institucional da **Radiadores Brasnal Ltda**, oficina especializada em reforma e manutenção de radiadores em Taboão da Serra/SP, em atividade desde 17 de setembro de 1982.
+Site institucional da **Radiadores Brasnal Ltda**, oficina especializada em reforma e manutenção de radiadores em Taboão da Serra/SP, em atividade desde 1991.
 
 Site estático puro: **HTML + CSS + JavaScript**, sem build, sem framework, sem dependência de servidor. Sobe em qualquer hospedagem — basta jogar os arquivos na pasta pública.
 
@@ -89,20 +89,17 @@ assets/js/config.js
 
 Lá ficam telefone, e-mail, horário de funcionamento e — o mais importante — o número de WhatsApp.
 
-### Ativar o WhatsApp
+### O WhatsApp
 
-O site foi construído para funcionar bem **com ou sem** WhatsApp configurado:
+Já está ativo com o número **(11) 99944-6050**. Ele alimenta, de uma vez só, o botão verde flutuante, o botão principal do topo, o cartão de contato da seção "Onde estamos", o rodapé e o envio do formulário de orçamento.
 
-- **Sem número** (estado atual): todos os botões de WhatsApp direcionam para ligação telefônica, e o formulário envia o orçamento por e-mail. Nada quebra.
-- **Com número**: os mesmos botões passam a abrir o WhatsApp com a mensagem já escrita, e o formulário monta o pedido completo na conversa.
-
-Para ativar, edite **uma linha**:
+Para trocar o número, edite **uma linha**:
 
 ```js
-whatsapp: '5511987654321',   // DDI + DDD + número, só dígitos
+whatsapp: '5511999446050',   // DDI + DDD + número, só dígitos
 ```
 
-Salve, suba o arquivo, e o site inteiro se adapta sozinho.
+Se essa linha ficar vazia (`''`), o site não quebra: todos os botões de WhatsApp viram "Ligar" e o formulário passa a enviar por e-mail.
 
 ---
 
@@ -113,14 +110,17 @@ O site tem **dois temas**, e o visitante alterna entre eles pelo botão de sol/l
 - **Claro (padrão)** — azul e branco, as cores da marca. É o que todo mundo vê ao entrar.
 - **Escuro (opcional)** — grafite e laranja. A escolha fica salva no navegador do visitante, então quem prefere o escuro continua nele nas próximas visitas.
 
+O azul do site é **o azul exato do logo** (`#2E3192`), amostrado direto da arte oficial — logo e interface falam a mesma língua.
+
 Toda a identidade visual está em **variáveis CSS no topo de `assets/css/style.css`**, num único bloco. Nenhuma cor é repetida pelo arquivo: para mudar a marca inteira, basta alterar os valores lá.
 
 ```css
 :root{                        /* tema claro — azul e branco */
-  --brand:#0B5FBF;            /* azul principal            */
-  --brand-2:#2C87E8;          /* azul claro (gradientes)   */
+  --brand:#2E3192;            /* azul do logo              */
+  --brand-2:#4B51C9;          /* azul claro (gradientes)   */
   --brand-ink:#FFFFFF;        /* texto sobre o azul        */
-  --band-bg:#0A2340;          /* faixa do topo e do rodapé */
+  --band-bg:#191B5E;          /* faixa do topo e do rodapé */
+  --zap:#25D366;              /* verde do WhatsApp         */
 }
 :root[data-theme="dark"]{     /* tema escuro — grafite e laranja */
   --brand:#FF6B2C;
@@ -129,6 +129,10 @@ Toda a identidade visual está em **variáveis CSS no topo de `assets/css/style.
 ```
 
 Para trocar o tom de azul da empresa, mexa em `--brand` e `--brand-2`. Todo o site acompanha: botões, ícones, links, gráficos, bordas e destaques.
+
+### O logo
+
+O logo está em `assets/img/logo-rb.svg`, redesenhado em **vetor** a partir da arte original — inclusive o monograma "RB", que é desenhado em curvas e não depende de nenhuma fonte instalada. Isso garante que ele fique idêntico em qualquer aparelho e nítido em qualquer tamanho, do favicon ao letreiro. O mesmo desenho alimenta o cabeçalho, o rodapé, o ícone da aba e a imagem de compartilhamento.
 
 ---
 
@@ -143,6 +147,7 @@ Para trocar o tom de azul da empresa, mexa em `--brand` e `--brand-2`. Todo o si
 │   ├── js/config.js        ← CONFIGURAÇÃO (telefone, WhatsApp, horários)
 │   ├── js/main.js          Comportamento (menu, formulário, animações)
 │   └── img/
+│       ├── logo-rb.svg     Logo oficial em vetor
 │       ├── favicon.svg     Ícone da aba do navegador
 │       └── og-brasnal.png  Imagem exibida ao compartilhar o link
 ├── robots.txt              Liberação para buscadores
@@ -176,9 +181,9 @@ Abra `http://localhost:4173`. O `dev-server.js` serve apenas para testar na sua 
 
 **Conversão**
 
-- Telefone clicável em quatro pontos da página.
+- Botão flutuante de WhatsApp no canto inferior direito, com o número já preenchido.
+- Telefone e WhatsApp clicáveis em vários pontos da página.
 - Formulário de orçamento com validação, que envia por WhatsApp ou e-mail.
-- Botão flutuante de contato que aparece durante a rolagem.
 - Selo dinâmico de "aberto agora / fechado" calculado pelo horário real.
 - Seção "sinais de alerta" — captura quem está pesquisando o sintoma, não o serviço.
 
@@ -212,9 +217,10 @@ Use imagens em `.webp`, com no máximo ~1600px de largura, e sempre com `alt` de
 |---|---|
 | Razão social | Radiadores Brasnal Ltda |
 | CNPJ | 51.335.206/0001-03 |
-| Fundação | 17/09/1982 |
+| Em atividade desde | 1991 |
 | Endereço | Av. Felício Baruti, 120 — Cidade Intercap, Taboão da Serra/SP, CEP 06757-000 |
-| Telefone | (11) 4701-3185 |
+| Telefone fixo | (11) 4701-3185 |
+| WhatsApp | (11) 99944-6050 |
 | E-mail | radiadoresbrasnal@hotmail.com |
 | Instagram | [@radiadoresbrasnal](https://www.instagram.com/radiadoresbrasnal/) |
 | Atividade | Serviços de manutenção e reparação mecânica de veículos automotores |
