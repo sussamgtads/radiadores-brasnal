@@ -90,10 +90,21 @@
   /* ── 3. Reveal on scroll ───────────────────────────────── */
   function reveal() {
     var itens = $$('.reveal');
-    if (!('IntersectionObserver' in window)) {
+    var mostrarTudo = function () {
       itens.forEach(function (el) { el.classList.add('is-in'); });
-      return;
-    }
+    };
+
+    if (!('IntersectionObserver' in window)) { mostrarTudo(); return; }
+
+    // Rede de segurança: se por qualquer motivo o observer não disparar,
+    // o conteúdo aparece assim mesmo em vez de ficar invisível.
+    setTimeout(function () {
+      itens.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-in');
+      });
+    }, 1200);
+
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en, i) {
         if (!en.isIntersecting) return;

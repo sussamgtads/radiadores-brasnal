@@ -53,11 +53,14 @@ ul,ol{margin:0;padding:0;list-style:none}
 .skip-link:focus{left:0}
 :focus-visible{outline:2px solid var(--hot-2);outline-offset:3px;border-radius:6px}
 
-/* ── Reveal ─────────────────────────────────────────────── */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.is-in{opacity:1;transform:none}
+/* ── Reveal ─────────────────────────────────────────────────
+   Só esconde quando há JavaScript para revelar de volta: a classe
+   .js é adicionada por um script inline no <head>. Sem JS — ou se o
+   script falhar — o conteúdo nasce visível em vez de sumir.        */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.is-in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
   *{animation-duration:.001ms !important;animation-iteration-count:1 !important}
 }
